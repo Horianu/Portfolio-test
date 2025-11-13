@@ -5,7 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useLenis } from "@studio-freight/react-lenis";
+import { Momo_Trust_Display, Momo_Trust_Sans } from "next/font/google";
 
+const momoDisplay = Momo_Trust_Display({ subsets: ["latin"], weight: ["400"] });
+const momoSans = Momo_Trust_Sans({ subsets: ["latin"], weight: ["400"] });
 
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -99,7 +102,9 @@ export default function HomePage() {
           className="object-contain"
         />
 
-        <nav className="flex gap-6 text-sm md:text-base">
+        <nav 
+        className={`flex gap-10 pl-10 text-lg tracking-wide ${momoSans.className}`}
+        >
           <Link href="/projects" className="hover:opacity-50">
             Projects
           </Link>
