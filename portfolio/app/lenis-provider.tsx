@@ -13,7 +13,7 @@ export default function LenisProvider({
     <ReactLenis
       root
       options={{
-        lerp: 0.06,      // smaller = more responsive, bigger = more floaty
+        lerp: 0.05,      // smaller = more responsive, bigger = more floaty
         smoothWheel: true,
       }}
     >

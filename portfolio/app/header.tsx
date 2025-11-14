@@ -64,11 +64,11 @@ export default function Header() {
           height={200}
           className="
             object-contain 
-            ml-2 md:ml-19
+            ml-2 md:ml-15
             w-10 h-auto
             md:w-16 md:h-auto
           "
-        />
+         />
       </Link>
 
       {/* Navigation */}
@@ -77,7 +77,7 @@ export default function Header() {
           flex gap-10 pl-10
           text-[12px] md:text-[16px]
           tracking-widest md:tracking-wide
-          md:mr-30 md:gap-20
+          md:mr-20 md:gap-25
           ${momoSans.className}
         `}
       >
