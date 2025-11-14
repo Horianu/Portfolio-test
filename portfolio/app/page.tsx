@@ -86,31 +86,6 @@ export default function HomePage() {
         preload="metadata"
       />
 
-      {/* HEADER (hide on scroll down, show on scroll up) */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-20 flex items-center justify-between px-[25px] py-5 transition-transform duration-300 
-          bg-gradient-to-b from-black/10 to-transparent
-
-          ${showHeader ? "translate-y-0" : "-translate-y-full"}
-          `}
-      >
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          width={771 / 15}
-          height={473 / 2}
-          className="object-contain"
-        />
-
-        <nav 
-        className={`flex gap-10 pl-10 text-lg tracking-wide ${momoSans.className}`}
-        >
-          <Link href="/projects" className="hover:opacity-50">
-            Projects
-          </Link>
-        </nav>
-      </header>
-
       {/* Content wrapper */}
       <div className="flex min-h-screen flex-col relative z-10">
         {/* Hero section (animated by GSAP) */}

@@ -7,6 +7,8 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./lenis-provider";
+import TransitionWrapper from "./transitionwrapper";
+import Header from "./header";
 
 const momo = Momo_Trust_Display({
   subsets: ["latin"],
@@ -41,7 +43,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={momoSans.className}>
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <Header />
+          <TransitionWrapper>
+          {children}
+          </TransitionWrapper>
+        </LenisProvider>
       </body>
     </html>
   );
