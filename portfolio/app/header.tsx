@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Momo_Trust_Display, Momo_Trust_Sans } from "next/font/google";
 
@@ -21,7 +21,7 @@ const links = [
 export default function Header() {
   const pathname = usePathname();
 
-  // Header visibility state
+  // Header visibility state - FIXED: All hooks at top level
   const [showHeader, setShowHeader] = useState(true);
   const lastScrollRef = useRef(0);
 
@@ -29,7 +29,7 @@ export default function Header() {
   useLenis(({ scroll }) => {
     const last = lastScrollRef.current;
     const diff = scroll - last;
-    const threshold = 100;
+    const threshold = 150;
 
     if (scroll < 100) {
       setShowHeader(true);
@@ -66,9 +66,9 @@ export default function Header() {
             object-contain 
             ml-2 md:ml-15
             w-10 h-auto
-            md:w-16 md:h-auto
+            md:w-13 md:h-auto
           "
-         />
+        />
       </Link>
 
       {/* Navigation */}

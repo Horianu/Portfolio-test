@@ -13,8 +13,13 @@ export default function LenisProvider({
     <ReactLenis
       root
       options={{
-        lerp: 0.05,      // smaller = more responsive, bigger = more floaty
+        lerp: 0.1,           // Increased from 0.05 for smoother easing
+        duration: 1.2,       // Scroll animation duration in seconds
         smoothWheel: true,
+        smoothTouch: false,  // Better for mobile
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        infinite: false,
       }}
     >
       {children}

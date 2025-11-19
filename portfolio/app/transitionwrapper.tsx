@@ -1,18 +1,48 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-export default function TransitionWrapper({ children }: { children: React.ReactNode }) {
+const pageVariants: Variants = {
+  initial: { 
+    x: '100%',
+    opacity: 0,
+    scale: 0.95
+  },
+  animate: { 
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  },
+  exit: { 
+    x: '-100%',
+    opacity: 0,
+    scale: 0.95,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
+export default function TransitionWrapper({ 
+  children 
+}: { 
+  children: React.ReactNode 
+}) {
   const pathname = usePathname();
 
   return (
     <motion.div
       key={pathname}
-      initial={{ x: 40, opacity: 0 }}    // always start from right
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -40, opacity: 0 }}     // optional: slide out to left
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
       className="min-h-screen"
     >
       {children}
